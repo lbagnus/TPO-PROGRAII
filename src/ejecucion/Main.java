@@ -4,9 +4,6 @@ import java.util.*;
 
 public class Main {
 	
-	
-	
-	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -16,15 +13,13 @@ public class Main {
 		
 		listaAlumnos.inicializarLista();
 		
-		System.out.println("A) Agregar Alumnos \n ");
-		System.out.println("B) Eliminar Alumnos \n");
-		System.out.println(">> Seleccione una opcion: \n");
 		
-		String opcion = myScanner.nextLine();
-		if (opcion.equals("A") || opcion.equals("a")) {
-			System.out.println(">> Agregar Alumnos \n ");
-			System.out.println(">> ingrese el legajo o -1 para finalizar la carga: \n ");
+		System.out.println("Agregar Alumnos \n ");
+	
+			System.out.println(">> Ingrese el legajo o -1 para finalizar la carga: \n ");
 			String legajo = myScanner.nextLine();
+			
+			
 			while(!legajo.equals("-1")) {
 				System.out.println(">> Ingrese el nombre:  \n ");
 				String nombre = myScanner.nextLine();
@@ -35,58 +30,30 @@ public class Main {
 				System.out.println(">> ingrese el legajo o -1 para finalizar la carga: \n ");
 				legajo = myScanner.nextLine();
 			}
-		}if(opcion.equals("B") || opcion.equals("b")) {
-			System.out.println(">> ingrese el legajo a eliminar \n ");
-			String legajoEliminar = myScanner.nextLine();
-			//listaAlumnos.eliminarElemento(alumno3);
 			
+			//ListasDinamicas listaAlumnosOrdeanada = ListasDinamicas.ordenarLista(listaAlumnos);
+			imprimirLista(listaAlumnos);
 			
-		}
 		
-		
-		
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//ObjetoAlumno alumno1 = new ObjetoAlumno("LARA", "BAGNUS","12345");
-		//listaAlumnos.agregarElemento(alumno1);
-		
-		//ObjetoAlumno alumno2 = new ObjetoAlumno("JULIETA", "GOMEZ","111111");
-		//listaAlumnos.agregarElemento(alumno2);
-		
-		//ObjetoAlumno alumno3 = new ObjetoAlumno("JERO", "AQUINO","2222");
-		//listaAlumnos.agregarElemento(alumno3);
-		
-		
-		
-		
-		
-		ListasDinamicas listaAlumnosOrdeanada = ListasDinamicas.ordenarLista(listaAlumnos);
+			System.out.println(">> Desea eliminar algun alumno? (ingrese si o no)\n ");
+			String opcion = myScanner.nextLine();
+			if(opcion.equals("si") || opcion.equals("Si")|| opcion.equals("SI")) {
+				System.out.println(">> ingrese el legajo a eliminar \n ");
+				String legajoEliminar = myScanner.nextLine();
+				ObjetoAlumno legajoObjeto = listaAlumnos.obtenerAlumno(legajoEliminar);
+				listaAlumnos.eliminarElemento(legajoObjeto);
+			}
+			if(opcion.equals("no") || opcion.equals("No")|| opcion.equals("NO")) {
+				System.out.println(">> Finalizo la carga de alumnos \n ");
+				
+			}
+			
+		ListasDinamicas listaAlumnosOrdeanada = listaAlumnos.ordenarLista(listaAlumnos);
 		imprimirLista(listaAlumnosOrdeanada);
 		
-			
-}
-	
-	
-	
+
+	}
 		
-		
-		
-	
 	public static void imprimirLista(ListasDinamicas listaAlumnos) {
 		Nodo aux = listaAlumnos.primerNodo;
 		while (aux.haySiguiente()) {

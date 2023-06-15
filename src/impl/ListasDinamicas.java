@@ -53,7 +53,7 @@ public void eliminarElemento(ObjetoAlumno alumnoEliminar) {
 			
 			if(legajoEliminar.equals (aux.alumno.legajo)) {
 				Nodo punteroCambio = aux.siguiente(); //es el puntero del nodo q eliminamos
-				System.out.println("*ELIMNINO : " +aux.alumno.nombre + "/" + aux.alumno.legajo + "\n" );
+				System.out.println("*ELIMNINO : " +aux.alumno.nombre+ " " + aux.alumno.apellido +"/" + aux.alumno.legajo + "\n" );
 				anterior.puntero = punteroCambio;
 				aux = aux.siguiente();
 				
@@ -72,7 +72,16 @@ public void eliminarElemento(ObjetoAlumno alumnoEliminar) {
 	
 }
 
-public static ListasDinamicas ordenarLista(ListasDinamicas listaAlumnos) {//Ordenamiento Burbujeo
+public ObjetoAlumno obtenerAlumno(String legajoAUX) {
+	while (!primerNodo.alumno.legajo.equals(legajoAUX)){
+		primerNodo.siguiente();	
+	}
+	return primerNodo.alumno;
+
+		
+	}
+
+public ListasDinamicas ordenarLista(ListasDinamicas listaAlumnos) {//Ordenamiento Burbujeo
 	
 	if (listaAlumnos.size > 1) { // si la lista tiene por lo menos 1 nodo
         boolean desordenada = true; // esta desordendad

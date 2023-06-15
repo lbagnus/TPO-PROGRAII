@@ -10,6 +10,9 @@ public ObjetoAlumno(String nombre,String apellido, String legajo) {
 	this.apellido = apellido;
 	this.legajo = legajo;
 }
+
+
 			
 	}
+
                                                                                  
